@@ -1,0 +1,203 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background:url('../img/tile.jpg') repeat #a0c5d1;
+}
+
+
+body{
+    background:url('../img/bg.jpg') no-repeat 50% -250px;
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+}
+
+a, a:visited {
+	outline:none;
+	color:#1c4f64;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
+}
+
+
+/*----------------------------
+	The Header
+-----------------------------*/
+
+
+header{
+	background-color:#fff;
+	background-image: linear-gradient(top, #FFFFFF 0%, #EDEDED 100%);
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #EDEDED 100%);
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #EDEDED 100%);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #EDEDED 100%);
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EDEDED 100%);
+	
+	padding:20px;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+header h1, header h2{
+	text-align:center;
+	font-weight: normal;
+}
+
+header h1{
+	font: 42px/50px 'Dancing Script', sans-serif;
+	color:#5e676d;
+}
+
+header h2{
+	font-style:italic;
+	font-size:13px;
+	color:#b2483a;
+}
+
+
+/*----------------------------
+	Thumbnails
+-----------------------------*/
+
+#thumbs{
+	width:480px;
+	margin:60px auto 35px;
+	text-align:center;
+}
+
+#thumbs a{
+	width:120px;
+	height:120px;
+	display:inline-block;
+	border:7px solid #303030;
+	box-shadow:0 1px 3px rgba(0,0,0,0.5);
+	border-radius:4px;
+	margin: 6px 6px 40px;
+	position:relative;
+	text-decoration:none;
+	
+	background-position:center center;
+	background-repeat: no-repeat;
+	
+	background-size:cover;
+	-moz-background-size:cover;
+	-webkit-background-size:cover;
+}
+
+#thumbs a:after{
+	background-color: #303030;
+    border-radius: 7px;
+    bottom: -136px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    content: attr(title);
+    display: inline-block;
+    font-size: 10px;
+    max-width: 90px;
+    overflow: hidden;
+    padding: 2px 10px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#credit{
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	font-size: 11px;
+	margin: 0 auto 70px;
+	opacity: 0.5;
+	padding: 12px 16px;
+	text-align: center;
+	width: 400px;
+}
+
+
+/*----------------------------
+	Media Queries
+-----------------------------*/
+
+
+@media screen and (max-width: 960px) {
+	#thumbs, #credit{
+		width:auto;
+	}
+	
+	footer{
+		display:none;
+	}
+	
+	#bsaHolder{
+		display:none;
+	}
+}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
