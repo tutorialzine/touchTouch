@@ -20,7 +20,7 @@ After you do all this, simply call the gallery as a regular jQuery plugin:
 $(function(){
 
 	// Initialize the gallery
-	$('#thumbs a').touchTouch();
+	$('.thumbs a').touchTouch();
 
 });
 ```
@@ -32,7 +32,7 @@ You must pass anchor elements which point to images in their href attributes for
 To show specific sets of pictures, add a "data-gallery" attribute to the anchor tags you want in that set, with a unique value. If this attribute isn't added, all images will be displayed.
 
 ```html
-	<a href="http://farm8.staticflickr.com/7013/6754656011_3de2cc73a2_z.jpg" data-gallery="hongkong" style="background-image:url(http://farm8.staticflickr.com/7013/6754656011_3de2cc73a2_m.jpg)" title="Lion Rock"></a>
+	<a href="image.jpg" data-gallery="hongkong" style="background-image:url(image.jpg)" title="Lion Rock"></a>
 ```
 
 ## License
