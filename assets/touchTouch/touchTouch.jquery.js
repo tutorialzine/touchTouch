@@ -78,15 +78,17 @@
 		items.on('click', function(e){
 			e.preventDefault();
 			
-			// Find the position of this image
-			// in the collection
-
+			
+			// Find gallery name and change items object to only have 
+			// that gallery
 			var galleryName = $(this).attr('data-gallery');
 
 			if (galleryName) {
 				items = $('[data-gallery='+galleryName+']');
 			}
 
+			// Find the position of this image
+			// in the collection
 			index = items.index(this);
 			showOverlay(index);
 			showImage(index);
@@ -162,6 +164,9 @@
 			// Hide the overlay
 			overlay.hide().removeClass('visible');
 			overlayVisible = false;
+
+			//Clear preloaded items
+			$('.placeholder').empty();
 		}
 	
 		function offsetSlider(index){
