@@ -80,7 +80,13 @@
 			
 			// Find the position of this image
 			// in the collection
-			
+
+			var galleryName = $(this).attr('data-gallery');
+
+			if (galleryName) {
+				items = $('[data-gallery='+galleryName+']');
+			}
+
 			index = items.index(this);
 			showOverlay(index);
 			showImage(index);

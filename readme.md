@@ -27,6 +27,14 @@ $(function(){
 
 You must pass anchor elements which point to images in their href attributes for the gallery to work. In addition to conveying which images are to be displayed in the gallery, this also provides a graceful fallback in case JavaScript is not available.
 
+### Multiple Galleries
+
+To show specific sets of pictures, add a "data-gallery" attribute to the anchor tags you want in that set, with a unique value. If this attribute isn't added, all images will be displayed.
+
+```html
+	<a href="http://farm8.staticflickr.com/7013/6754656011_3de2cc73a2_z.jpg" data-gallery="hongkong" style="background-image:url(http://farm8.staticflickr.com/7013/6754656011_3de2cc73a2_m.jpg)" title="Lion Rock"></a>
+```
+
 ## License
 
 Released under the MIT license
