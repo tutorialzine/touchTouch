@@ -32,7 +32,7 @@ You must pass anchor elements which point to images in their href attributes for
 To show specific sets of pictures, add a "data-gallery" attribute to the anchor tags you want in that set, with a unique value. If this attribute isn't added, all images will be displayed.
 
 ```html
-	<a href="image.jpg" data-gallery="hongkong" style="background-image:url(image.jpg)" title="Lion Rock"></a>
+	<a href="image.jpg" data-gallery="hongkong" title="Lion Rock"></a>
 ```
 
 ## License
