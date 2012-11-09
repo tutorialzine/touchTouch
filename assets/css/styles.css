@@ -136,7 +136,7 @@ header h2{
 
 
 @media screen and (max-width: 960px) {
-	#thumbs, #credit{
+	.thumbs, #credit{
 		width:auto;
 	}
 	
