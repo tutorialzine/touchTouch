@@ -6,7 +6,12 @@
  * @license		MIT License
  */
 
+
 (function(){
+
+
+
+
 	
 	/* Private variables */
 	
@@ -20,6 +25,9 @@
 	/* Creating the plugin */
 	
 	$.fn.touchTouch = function(){
+
+
+
 		
 		var placeholders = $([]),
 			index = 0,
@@ -77,16 +85,33 @@
 		
 		items.on('click', function(e){
 			e.preventDefault();
-			
-			
+
+			var $this = $(this),
+				galleryName,
+				selectorType,
+				$closestGallery = $this.parent().closest('[data-gallery]');
+
 			// Find gallery name and change items object to only have 
 			// that gallery
-			var galleryName = $(this).attr('data-gallery');
 
-			if (galleryName) {
-				items = $('[data-gallery='+galleryName+']');
+			console.log($this.closest('[data-gallery]').attr('data-gallery'));
+
+			if ($this.attr('data-gallery')) {
+				galleryName = $this.attr('data-gallery');
+				selectorType = 'item';
+			} else if ($closestGallery.length) {
+				galleryName = $closestGallery.attr('data-gallery');
+				selectorType = 'parent';
 			}
 
+			
+	if (galleryName && selectorType == 'item') {
+				items = $('[data-gallery='+galleryName+']');
+			} else if (galleryName && selectorType == 'parent') {
+				items = items.filter(function(){
+           				 return $closestGallery.find(this); 
+           				});
+			}
 			// Find the position of this image
 			// in the collection
 			index = items.index(this);
