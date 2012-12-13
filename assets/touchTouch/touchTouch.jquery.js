@@ -9,10 +9,6 @@
 
 (function(){
 
-
-
-
-	
 	/* Private variables */
 	
 	var overlay = $('<div id="galleryOverlay">'),
@@ -26,12 +22,10 @@
 	
 	$.fn.touchTouch = function(){
 
-
-
-		
 		var placeholders = $([]),
 			index = 0,
-			items = this;
+			allitems = this;
+			items = allitems;
 		
 		// Appending the markup to the page
 		overlay.hide().appendTo('body');
@@ -39,11 +33,13 @@
 		
 		// Creating a placeholder for each image
 		items.each(function(){
+
 			placeholders = placeholders.add($('<div class="placeholder">'));
 		});
 	
 		// Hide the gallery if the background is touched / clicked
 		slider.append(placeholders).on('click',function(e){
+
 			if(!$(e.target).is('img')){
 				hideOverlay();
 			}
@@ -64,10 +60,13 @@
 						e.originalEvent.changedTouches[0];
 				
 				if(touch.pageX - startX > 10){
+
 					slider.off('touchmove');
 					showPrevious();
 				}
+
 				else if (touch.pageX - startX < -10){
+
 					slider.off('touchmove');
 					showNext();
 				}
@@ -78,12 +77,14 @@
 			return false;
 			
 		}).on('touchend',function(){
+
 			slider.off('touchmove');
+
 		});
 		
 		// Listening for clicks on the thumbnails
-		
 		items.on('click', function(e){
+
 			e.preventDefault();
 
 			var $this = $(this),
@@ -94,24 +95,36 @@
 			// Find gallery name and change items object to only have 
 			// that gallery
 
-			console.log($this.closest('[data-gallery]').attr('data-gallery'));
-
+			//If gallery name given to each item
 			if ($this.attr('data-gallery')) {
+
 				galleryName = $this.attr('data-gallery');
 				selectorType = 'item';
+
+			//If gallery name given to some ancestor
 			} else if ($closestGallery.length) {
+
 				galleryName = $closestGallery.attr('data-gallery');
-				selectorType = 'parent';
+				selectorType = 'ancestor';
+
 			}
 
-			
-	if (galleryName && selectorType == 'item') {
+			//These statements kept seperate in case elements have data-gallery on both
+			//items and ancestor. Ancestor will always win because above of above statments.
+			if (galleryName && selectorType == 'item') {
+
 				items = $('[data-gallery='+galleryName+']');
-			} else if (galleryName && selectorType == 'parent') {
+
+			} else if (galleryName && selectorType == 'ancestor') {
+
+				//Filter to check if item has an ancestory with data-gallery attribute
 				items = items.filter(function(){
-           				 return $closestGallery.find(this); 
-           				});
+					console.log($(this).parent().closest('[data-gallery]').length);
+           			return $(this).parent().closest('[data-gallery]').length;    
+           		});
+
 			}
+
 			// Find the position of this image
 			// in the collection
 			index = items.index(this);
@@ -145,10 +158,11 @@
 		// Listen for arrow keys
 		$(window).bind('keydown', function(e){
 		
-			if (e.keyCode == 37){
+			if (e.keyCode == 37) {
 				showPrevious();
 			}
-			else if (e.keyCode==39){
+
+			else if (e.keyCode==39) {
 				showNext();
 			}
 	
@@ -159,7 +173,6 @@
 		
 	
 		function showOverlay(index){
-			
 			// If the overlay is already shown, exit
 			if (overlayVisible){
 				return false;
@@ -181,6 +194,7 @@
 		}
 	
 		function hideOverlay(){
+
 			// If the overlay is not shown, exit
 			if(!overlayVisible){
 				return false;
@@ -192,15 +206,20 @@
 
 			//Clear preloaded items
 			$('.placeholder').empty();
+
+			//Reset possibly filtered items
+			items = allitems;
 		}
 	
 		function offsetSlider(index){
+
 			// This will trigger a smooth css transition
 			slider.css('left',(-index*100)+'%');
 		}
 	
 		// Preload an image by its index in the items array
 		function preload(index){
+
 			setTimeout(function(){
 				showImage(index);
 			}, 1000);
@@ -224,6 +243,7 @@
 		// Returns a jQuery object
 		
 		function loadImage(src, callback){
+
 			var img = $('<img>').on('load', function(){
 				callback.call(img);
 			});
@@ -239,9 +259,9 @@
 				offsetSlider(index);
 				preload(index+1);
 			}
+
 			else{
 				// Trigger the spring animation
-				
 				slider.addClass('rightSpring');
 				setTimeout(function(){
 					slider.removeClass('rightSpring');
@@ -257,9 +277,9 @@
 				offsetSlider(index);
 				preload(index-1);
 			}
+
 			else{
 				// Trigger the spring animation
-				
 				slider.addClass('leftSpring');
 				setTimeout(function(){
 					slider.removeClass('leftSpring');
