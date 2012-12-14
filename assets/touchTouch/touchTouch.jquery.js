@@ -24,7 +24,7 @@
 
 		var placeholders = $([]),
 			index = 0,
-			allitems = this;
+			allitems = this,
 			items = allitems;
 		
 		// Appending the markup to the page
