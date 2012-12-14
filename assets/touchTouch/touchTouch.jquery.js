@@ -110,7 +110,7 @@
 			}
 
 			//These statements kept seperate in case elements have data-gallery on both
-			//items and ancestor. Ancestor will always win because above of above statments.
+			//items and ancestor. Ancestor will always win because of above statments.
 			if (galleryName && selectorType == 'item') {
 
 				items = $('[data-gallery='+galleryName+']');
@@ -119,8 +119,9 @@
 
 				//Filter to check if item has an ancestory with data-gallery attribute
 				items = items.filter(function(){
-					console.log($(this).parent().closest('[data-gallery]').length);
+
            			return $(this).parent().closest('[data-gallery]').length;    
+           			
            		});
 
 			}
