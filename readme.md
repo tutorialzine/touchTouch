@@ -9,7 +9,7 @@ A jQuery 1.7+ plugin that makes it easy to display a set of photos on your site 
 * Preloads photos only when they are needed;
 * Supports swiping through photos;
 * Displays onscreen arrows and listens for arrow key presses on desktop browsers;
-* Supports multiple galleires;
+* Supports multiple galleries;
 
 ## How to use
 
@@ -38,7 +38,7 @@ Each of the anchor tags you want in that set, with a unique value.
 	<a href="image.jpg" data-gallery="hongkong" title="Lion Rock"></a>
 ```
 
-*Or:*
+**Or:**
 
 Any ancestor containing the elements selected by the plugin. Note that this method takes priority if both are used on the same set.
 
