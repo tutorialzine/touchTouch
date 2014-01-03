@@ -167,6 +167,10 @@
 				showNext();
 			}
 
+			else if (e.keyCode==27) { //esc
+				hideOverlay();
+			}
+
 		});
 
 
